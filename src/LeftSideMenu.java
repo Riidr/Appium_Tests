@@ -17,112 +17,206 @@ import org.openqa.selenium.support.ui.WebDriverWait;
  * @author max
  */
 public class LeftSideMenu {
-    public void openLibrary(AndroidDriver driver){
+    public void openLibrary(AndroidDriver driver, String aut){
     	try {
-            WebElement element = driver.findElement(By.xpath("//android.widget.FrameLayout[1]/" +
-                    "android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/" +
-                    "android.view.View[1]/android.support.v4.widget.DrawerLayout[1]/" +
-                    "android.widget.LinearLayout[1]/android.widget.LinearLayout[1]/" +
-                    "android.view.View[1]/android.widget.ImageButton[1]"));
-            element.click();
-            Thread.sleep(500);
-            WebElement library = driver.findElement(By.xpath("//android.widget.LinearLayout[1]"
-                    + "/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]"
-                    + "/android.widget.FrameLayout[1]/android.support.v4.widget.DrawerLayout[1]"
-                    + "/android.widget.RelativeLayout[1]/android.widget.ListView[1]"
-                    + "/android.widget.LinearLayout[1]"));
-            library.click();
-            WebElement check = (new WebDriverWait(driver, 60))
-                    .until(ExpectedConditions.presenceOfElementLocated(By.id("appbar")));
+    	    if (aut == "Politiken") {
+                WebElement element = driver.findElement(By.xpath("//android.widget.LinearLayout[1]/" +
+                        "android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/" +
+                        "android.widget.FrameLayout[1]/android.view.ViewGroup[1]/" +
+                        "android.support.v4.widget.DrawerLayout[1]/" +
+                        "android.widget.LinearLayout[1]/android.widget.LinearLayout[1]/" +
+                        "android.view.ViewGroup[1]/android.widget.ImageButton[1]"));
+                element.click();
+                Thread.sleep(700);
+                WebElement library = driver.findElement(By.xpath("//android.widget.LinearLayout[1]/" +
+                        "android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/" +
+                        "android.widget.FrameLayout[1]/android.view.ViewGroup[1]/" +
+                        "android.support.v4.widget.DrawerLayout[1]/android.widget.RelativeLayout[1]/" +
+                        "android.widget.ListView[1]/android.widget.LinearLayout[1]"));
+                library.click();
+                WebElement check = (new WebDriverWait(driver, 60))
+                        .until(ExpectedConditions.presenceOfElementLocated(By.id("appbar")));
+            } else if (aut == "Ebok"){
+                WebElement element = driver.findElement(By.xpath("//android.widget.LinearLayout[1]"
+                        + "/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]"
+                        + "/android.widget.FrameLayout[1]/android.support.v4.widget.DrawerLayout[1]"
+                        + "/android.widget.LinearLayout[1]/android.widget.LinearLayout[1]"
+                        + "/android.view.ViewGroup[1]/android.widget.ImageButton[1]"));
+                element.click();
+                Thread.sleep(500);
+                WebElement library = driver.findElement(By.xpath("//android.widget.LinearLayout[1]"
+                        + "/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]"
+                        + "/android.widget.FrameLayout[1]/android.support.v4.widget.DrawerLayout[1]"
+                        + "/android.widget.RelativeLayout[1]/android.widget.ListView[1]"
+                        + "/android.widget.LinearLayout[1]"));
+                library.click();
+                WebElement check = (new WebDriverWait(driver, 60))
+                        .until(ExpectedConditions.presenceOfElementLocated(By.id("appbar")));
+            }
     	} catch (Exception e) {
             System.out.println("ERROR: Could not open Library.");
     	}
     }
     
-	public void openSearch(AndroidDriver driver){
+	public void openSearch(AndroidDriver driver, String aut){
     	try{
-            WebElement element = driver.findElement(By.xpath("//android.widget.FrameLayout[1]/" +
-                    "android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/" +
-                    "android.view.View[1]/android.support.v4.widget.DrawerLayout[1]/" +
-                    "android.widget.LinearLayout[1]/android.widget.LinearLayout[1]/" +
-                    "android.view.View[1]/android.widget.ImageButton[1]"));
-            element.click();
-            Thread.sleep(500);
-            WebElement search = driver.findElement(By.xpath("//android.widget.LinearLayout[1]"
-                    + "/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]"
-                    + "/android.widget.FrameLayout[1]/android.support.v4.widget.DrawerLayout[1]"
-                    + "/android.widget.RelativeLayout[1]/android.widget.ListView[1]"
-                    + "/android.widget.LinearLayout[2]"));
-            search.click();
-            WebElement check = (new WebDriverWait(driver, 60))
-                    .until(ExpectedConditions.presenceOfElementLocated(By.id("search_autocomplete_textview")));
-            
+    	    if (aut == "Politiken") {
+                WebElement element = driver.findElement(By.xpath("//android.widget.LinearLayout[1]/" +
+                        "android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/" +
+                        "android.widget.FrameLayout[1]/android.view.ViewGroup[1]/" +
+                        "android.support.v4.widget.DrawerLayout[1]/" +
+                        "android.widget.LinearLayout[1]/android.widget.LinearLayout[1]/" +
+                        "android.view.ViewGroup[1]/android.widget.ImageButton[1]"));
+                element.click();
+                Thread.sleep(700);
+                WebElement search = driver.findElement(By.xpath("//android.widget.LinearLayout[1]/" +
+                        "android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/" +
+                        "android.widget.FrameLayout[1]/android.view.ViewGroup[1]/" +
+                        "android.support.v4.widget.DrawerLayout[1]/android.widget.RelativeLayout[1]/" +
+                        "android.widget.ListView[1]/android.widget.LinearLayout[2]"));
+                search.click();
+                WebElement check = (new WebDriverWait(driver, 60))
+                        .until(ExpectedConditions.presenceOfElementLocated(By.id("search_autocomplete_textview")));
+            } else if (aut == "Ebok"){
+                WebElement element = driver.findElement(By.xpath("//android.widget.LinearLayout[1]"
+                        + "/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]"
+                        + "/android.widget.FrameLayout[1]/android.support.v4.widget.DrawerLayout[1]"
+                        + "/android.widget.LinearLayout[1]/android.widget.LinearLayout[1]"
+                        + "/android.view.ViewGroup[1]/android.widget.ImageButton[1]"));
+                element.click();
+                Thread.sleep(500);
+                WebElement search = driver.findElement(By.xpath("//android.widget.LinearLayout[1]"
+                        + "/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]"
+                        + "/android.widget.FrameLayout[1]/android.support.v4.widget.DrawerLayout[1]"
+                        + "/android.widget.RelativeLayout[1]/android.widget.ListView[1]"
+                        + "/android.widget.LinearLayout[2]"));
+                search.click();
+                WebElement check = (new WebDriverWait(driver, 60))
+                        .until(ExpectedConditions.presenceOfElementLocated(By.id("search_autocomplete_textview")));
+            }
     	}catch (Exception e) {
             System.out.println("ERROR: Could not open Search.");
     	}
     }
     
-	public void openDiscover(AndroidDriver driver){
+	public void openDiscover(AndroidDriver driver, String aut){
     	try {
-            WebElement element = driver.findElement(By.xpath("//android.widget.FrameLayout[1]/" +
-                    "android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/" +
-                    "android.view.View[1]/android.support.v4.widget.DrawerLayout[1]/" +
-                    "android.widget.LinearLayout[1]/android.widget.LinearLayout[1]/" +
-                    "android.view.View[1]/android.widget.ImageButton[1]"));
-            element.click();
-            Thread.sleep(500);
-            WebElement discover = driver.findElement(By.xpath("//android.widget.LinearLayout[1]"
-                    + "/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]"
-                    + "/android.widget.FrameLayout[1]/android.support.v4.widget.DrawerLayout[1]"
-                    + "/android.widget.RelativeLayout[1]/android.widget.ListView[1]"
-                    + "/android.widget.LinearLayout[3]"));
-            discover.click();
-            WebElement check = (new WebDriverWait(driver, 60))
-                    .until(ExpectedConditions.presenceOfElementLocated(By.id("scrollingBooks")));
+    	    if (aut == "Politiken") {
+                WebElement element = driver.findElement(By.xpath("//android.widget.LinearLayout[1]/" +
+                        "android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/" +
+                        "android.widget.FrameLayout[1]/android.view.ViewGroup[1]/" +
+                        "android.support.v4.widget.DrawerLayout[1]/" +
+                        "android.widget.LinearLayout[1]/android.widget.LinearLayout[1]/" +
+                        "android.view.ViewGroup[1]/android.widget.ImageButton[1]"));
+                element.click();
+                Thread.sleep(700);
+                WebElement discover = driver.findElement(By.xpath("//android.widget.LinearLayout[1]/" +
+                        "android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/" +
+                        "android.widget.FrameLayout[1]/android.view.ViewGroup[1]/" +
+                        "android.support.v4.widget.DrawerLayout[1]/android.widget.RelativeLayout[1]/" +
+                        "android.widget.ListView[1]/android.widget.LinearLayout[3]"));
+                discover.click();
+                WebElement check = (new WebDriverWait(driver, 60))
+                        .until(ExpectedConditions.presenceOfElementLocated(By.id("scrollingBooks")));
+            } else if (aut == "Ebok"){
+                WebElement element = driver.findElement(By.xpath("//android.widget.LinearLayout[1]"
+                        + "/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]"
+                        + "/android.widget.FrameLayout[1]/android.support.v4.widget.DrawerLayout[1]"
+                        + "/android.widget.LinearLayout[1]/android.widget.LinearLayout[1]"
+                        + "/android.view.ViewGroup[1]/android.widget.ImageButton[1]"));
+                element.click();
+                Thread.sleep(500);
+                WebElement discover = driver.findElement(By.xpath("//android.widget.LinearLayout[1]"
+                        + "/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]"
+                        + "/android.widget.FrameLayout[1]/android.support.v4.widget.DrawerLayout[1]"
+                        + "/android.widget.RelativeLayout[1]/android.widget.ListView[1]"
+                        + "/android.widget.LinearLayout[3]"));
+                discover.click();
+                WebElement check = (new WebDriverWait(driver, 60))
+                        .until(ExpectedConditions.presenceOfElementLocated(By.id("scrollingBooks")));
+            }
     	} catch (Exception e) {
             System.out.println("ERROR: Could not open Discover.");
     	}
     }
     
-	public void openCategories(AndroidDriver driver){
+	public void openCategories(AndroidDriver driver, String aut){
     	try{
-            WebElement element = driver.findElement(By.xpath("//android.widget.FrameLayout[1]/" +
-                    "android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/" +
-                    "android.view.View[1]/android.support.v4.widget.DrawerLayout[1]/" +
-                    "android.widget.LinearLayout[1]/android.widget.LinearLayout[1]/" +
-                    "android.view.View[1]/android.widget.ImageButton[1]"));
-            element.click();
-            Thread.sleep(500);
-            WebElement categories = driver.findElement(By.xpath("//android.widget.LinearLayout[1]"
-                    + "/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]"
-                    + "/android.widget.FrameLayout[1]/android.support.v4.widget.DrawerLayout[1]"
-                    + "/android.widget.RelativeLayout[1]/android.widget.ListView[1]"
-                    + "/android.widget.LinearLayout[4]"));
-            categories.click();
-            WebElement check = (new WebDriverWait(driver, 60))
-                    .until(ExpectedConditions.presenceOfElementLocated(By.id("category_image1")));
+    	    if (aut == "Politiken") {
+                WebElement element = driver.findElement(By.xpath("//android.widget.LinearLayout[1]/" +
+                        "android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/" +
+                        "android.widget.FrameLayout[1]/android.view.ViewGroup[1]/" +
+                        "android.support.v4.widget.DrawerLayout[1]/" +
+                        "android.widget.LinearLayout[1]/android.widget.LinearLayout[1]/" +
+                        "android.view.ViewGroup[1]/android.widget.ImageButton[1]"));
+                element.click();
+                Thread.sleep(700);
+                WebElement categories = driver.findElement(By.xpath("//android.widget.LinearLayout[1]/" +
+                        "android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/" +
+                        "android.widget.FrameLayout[1]/android.view.ViewGroup[1]/" +
+                        "android.support.v4.widget.DrawerLayout[1]/android.widget.RelativeLayout[1]/" +
+                        "android.widget.ListView[1]/android.widget.LinearLayout[4]"));
+                categories.click();
+                WebElement check = (new WebDriverWait(driver, 60))
+                        .until(ExpectedConditions.presenceOfElementLocated(By.id("category_image1")));
+            } else if (aut == "Ebok"){
+                WebElement element = driver.findElement(By.xpath("//android.widget.LinearLayout[1]"
+                        + "/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]"
+                        + "/android.widget.FrameLayout[1]/android.support.v4.widget.DrawerLayout[1]"
+                        + "/android.widget.LinearLayout[1]/android.widget.LinearLayout[1]"
+                        + "/android.view.ViewGroup[1]/android.widget.ImageButton[1]"));
+                element.click();
+                Thread.sleep(500);
+                WebElement categories = driver.findElement(By.xpath("//android.widget.LinearLayout[1]"
+                        + "/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]"
+                        + "/android.widget.FrameLayout[1]/android.support.v4.widget.DrawerLayout[1]"
+                        + "/android.widget.RelativeLayout[1]/android.widget.ListView[1]"
+                        + "/android.widget.LinearLayout[4]"));
+                categories.click();
+                WebElement check = (new WebDriverWait(driver, 60))
+                        .until(ExpectedConditions.presenceOfElementLocated(By.id("category_image1")));
+            }
     	} catch (Exception e) {
             System.out.println("ERROR: Could not open Categories.");
     	}
     }
     
-	public void openSettings(AndroidDriver driver){
+	public void openSettings(AndroidDriver driver, String aut){
     	try {
-            WebElement element = driver.findElement(By.xpath("//android.widget.FrameLayout[1]/" +
-                    "android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/" +
-                    "android.view.View[1]/android.support.v4.widget.DrawerLayout[1]/" +
-                    "android.widget.LinearLayout[1]/android.widget.LinearLayout[1]/" +
-                    "android.view.View[1]/android.widget.ImageButton[1]"));
-            element.click();
-            Thread.sleep(500);
-            WebElement settings = driver.findElement(By.xpath("//android.widget.LinearLayout[1]"
-                    + "/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]"
-                    + "/android.widget.FrameLayout[1]/android.support.v4.widget.DrawerLayout[1]"
-                    + "/android.widget.RelativeLayout[1]/android.widget.ListView[1]"
-                    + "/android.widget.LinearLayout[5]"));
-            settings.click();
-            WebElement check = (new WebDriverWait(driver, 60))
-                    .until(ExpectedConditions.presenceOfElementLocated(By.id("sign_out_button")));
+    	    if (aut == "Politiken") {
+                WebElement element = driver.findElement(By.xpath("//android.widget.LinearLayout[1]/" +
+                        "android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/" +
+                        "android.widget.FrameLayout[1]/android.view.ViewGroup[1]/" +
+                        "android.support.v4.widget.DrawerLayout[1]/" +
+                        "android.widget.LinearLayout[1]/android.widget.LinearLayout[1]/" +
+                        "android.view.ViewGroup[1]/android.widget.ImageButton[1]"));
+                element.click();
+                Thread.sleep(700);
+                WebElement settings = driver.findElement(By.xpath("//android.widget.LinearLayout[1]/" +
+                        "android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/" +
+                        "android.widget.FrameLayout[1]/android.view.ViewGroup[1]/" +
+                        "android.support.v4.widget.DrawerLayout[1]/android.widget.RelativeLayout[1]/" +
+                        "android.widget.ListView[1]/android.widget.LinearLayout[5]"));
+                settings.click();
+                WebElement check = (new WebDriverWait(driver, 60))
+                        .until(ExpectedConditions.presenceOfElementLocated(By.id("sign_out_button")));
+            } else if (aut == "Ebok"){
+                WebElement element = driver.findElement(By.xpath("//android.widget.LinearLayout[1]"
+                        + "/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]"
+                        + "/android.widget.FrameLayout[1]/android.support.v4.widget.DrawerLayout[1]"
+                        + "/android.widget.LinearLayout[1]/android.widget.LinearLayout[1]"
+                        + "/android.view.ViewGroup[1]/android.widget.ImageButton[1]"));
+                element.click();
+                Thread.sleep(500);
+                WebElement settings = driver.findElement(By.xpath("//android.widget.LinearLayout[1]"
+                        + "/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]"
+                        + "/android.widget.FrameLayout[1]/android.support.v4.widget.DrawerLayout[1]"
+                        + "/android.widget.RelativeLayout[1]/android.widget.ListView[1]"
+                        + "/android.widget.LinearLayout[5]"));
+                settings.click();
+                WebElement check = (new WebDriverWait(driver, 60))
+                        .until(ExpectedConditions.presenceOfElementLocated(By.id("sign_out_button")));
+            }
     	} catch (Exception e) {
             System.out.println("ERROR: Could not open Settings.");
     	}

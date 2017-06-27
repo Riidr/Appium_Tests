@@ -21,7 +21,7 @@ public class LogIn {
     
     public LogIn() {  
     }
-    public void logIn(AndroidDriver driver, Integer user)throws Exception{
+    public void logIn(AndroidDriver driver, String user)throws Exception{
         try {
             WebElement element;
             //Input of email address
@@ -29,7 +29,7 @@ public class LogIn {
             element.sendKeys("rj+"+user+"@pubfront.com");
             //Input of password
             element = driver.findElement(By.id("password"));
-            element.sendKeys("password");
+            element.sendKeys("password123");
             //Press Log In button
             WebElement button = driver.findElement(By.id("Login_btn"));
             button.click();

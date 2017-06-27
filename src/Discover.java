@@ -19,7 +19,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class Discover {
     private static int bookNo = 0;
     
-    public void discoverGetSample (AndroidDriver driver) throws Exception{
+    public void discoverGetSample (AndroidDriver driver, String aut) throws Exception{
         //Instanciating classes
         BookDetails detail = new BookDetails();
         //Tap book in list
@@ -28,11 +28,11 @@ public class Discover {
         Thread.sleep(500);
         WebElement check = (new WebDriverWait(driver, 60))
                     .until(ExpectedConditions.presenceOfElementLocated(By.id("sample_button")));
-        detail.getSample(driver);
+        detail.getSample(driver, aut);
         bookNo++;
     }
     
-    public void addWishlist (AndroidDriver driver) throws Exception{
+    public void addWishlist (AndroidDriver driver, String aut) throws Exception{
         //Instanciating classes
         BookDetails detail = new BookDetails();
         //Tap book in list

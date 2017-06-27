@@ -52,6 +52,7 @@ public class Library {
         }
         return false;
     }
+
     
     public void openCollection(AndroidDriver driver, String collection) throws Exception {
         //Instanciating classes
